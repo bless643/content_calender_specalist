@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Generated Calendar</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+    <div class="page">
+        <header class="hero small-hero">
+            <div class="hero-text">
+                <span class="badge">Generated Successfully</span>
+                <h1>Your Content Calendar is Ready</h1>
+                <p>Preview the generated plan below and download the Excel file.</p>
+            </div>
+        </header>
+
+        <main class="result-layout">
+            <section class="card result-card">
+                <div class="result-topbar">
+                    <div>
+                        <h2>Calendar Preview</h2>
+                        <p>Structured output generated from your AI workflow.</p>
+                    </div>
+
+                    <div class="result-actions">
+                        <a class="btn-secondary" href="/">Create Another</a>
+                        <a class="btn-primary" href="/download/{{ file_name }}">Download Excel</a>
+                    </div>
+                </div>
+
+                {% if records and records|length > 0 %}
+                <div class="table-wrapper">
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                {% for key in records[0].keys() %}
+                                <th>{{ key }}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in records %}
+                            <tr>
+                                {% for value in row.values() %}
+                                <td>{{ value }}</td>
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="empty-state">
+                    <h3>No records found</h3>
+                    <p>There was no structured content to display.</p>
+                </div>
+                {% endif %}
+            </section>
+        </main>
+    </div>
+</body>
+</html>

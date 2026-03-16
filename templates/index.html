@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NeuraRank Content Calendar Generator</title>
+    <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+    <div class="page">
+        <header class="hero">
+            <div class="hero-text">
+                <span class="badge">AI Content Workflow</span>
+                <h1>NeuraRank Content Calendar Generator</h1>
+                <p>
+                    Generate a structured 6 day content calendar for LinkedIn and Instagram
+                    using a multi worker AI workflow.
+                </p>
+            </div>
+        </header>
+
+        <main class="main-grid">
+            <section class="card form-card">
+                <div class="card-header">
+                    <h2>Generate Calendar</h2>
+                    <p>Enter company information and the weekly focus.</p>
+                </div>
+
+                <form id="calendarForm" action="/generate" method="post" class="form">
+                    <div class="form-group">
+                        <label for="company_details">Company Details</label>
+                        <textarea
+                            id="company_details"
+                            name="company_details"
+                            rows="10"
+                            placeholder="Describe the company, target audience, brand tone, and business focus..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="weekly_focus">Weekly Focus</label>
+                        <input
+                            id="weekly_focus"
+                            type="text"
+                            name="weekly_focus"
+                            placeholder="Example: helping manufacturers understand basic digital branding"
+                            required
+                        />
+                    </div>
+
+                    <button type="submit" id="generateBtn" class="btn-primary">
+                        Generate Content Calendar
+                    </button>
+
+                    <div id="loadingBox" class="loading-box hidden">
+                        <div class="spinner"></div>
+                        <span>Generating your content calendar...</span>
+                    </div>
+                </form>
+            </section>
+
+            <section class="card info-card">
+                <div class="card-header">
+                    <h2>What this app does</h2>
+                </div>
+
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="feature-icon">1</div>
+                        <div>
+                            <h3>Strategy Draft</h3>
+                            <p>Creates a weekly content structure for LinkedIn and Instagram.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">2</div>
+                        <div>
+                            <h3>Creator Guide</h3>
+                            <p>Adds detailed descriptions so a content creator can execute each post.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">3</div>
+                        <div>
+                            <h3>Virality Edit</h3>
+                            <p>Improves the draft to be more engaging and appealing to a wider audience.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">4</div>
+                        <div>
+                            <h3>Structured Export</h3>
+                            <p>Cleans the output into JSON, converts it to a table, and exports to Excel.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
